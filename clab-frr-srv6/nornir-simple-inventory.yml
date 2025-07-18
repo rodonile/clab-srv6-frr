@@ -1,0 +1,71 @@
+---
+PC11:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.9
+PC12:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.7
+PC21:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.14
+PC22:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.6
+frr1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.15
+frr2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3
+frr3:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.11
+frr4:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.13
+frr5:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.5
+frr6:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.12
+frr_c1_r1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.2
+frr_c1_r2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.10
+frr_c2_r1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.4
+frr_c2_r2:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.8
