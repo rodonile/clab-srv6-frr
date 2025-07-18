@@ -6,7 +6,7 @@
       "prefix": "",
       "mgmt": {
         "network": "clab",
-        "bridge": "br-6481a9c82e8a",
+        "bridge": "br-473142569a1a",
         "ipv4-subnet": "172.20.20.0/24",
         "ipv4-gw": "172.20.20.1",
         "ipv6-subnet": "3fff:172:20:20::/64",
@@ -29,13 +29,13 @@
       "image": "network-multitool-leo:v1.0",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-address": "172.20.20.12",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::6",
+      "mgmt-ipv6-address": "3fff:172:20:20::c",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/PC11",
@@ -50,6 +50,18 @@
         "graph-posY": "465"
       },
       "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 443,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        },
         {
           "host-ip": "",
           "host-port": 0,
@@ -73,18 +85,6 @@
           "host-port": 0,
           "port": 22,
           "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 443,
-          "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 80,
-          "protocol": "tcp"
         }
       ]
     },
@@ -99,13 +99,13 @@
       "image": "network-multitool-leo:v1.0",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.8",
+      "mgmt-ipv4-address": "172.20.20.5",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::8",
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/PC12",
@@ -169,13 +169,13 @@
       "image": "network-multitool-leo:v1.0",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.13",
+      "mgmt-ipv4-address": "172.20.20.3",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::d",
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/PC21",
@@ -239,13 +239,13 @@
       "image": "network-multitool-leo:v1.0",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.9",
+      "mgmt-ipv4-address": "172.20.20.2",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::9",
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/PC22",
@@ -260,6 +260,18 @@
         "graph-posY": "785"
       },
       "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 80,
+          "protocol": "tcp"
+        },
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 8080,
+          "protocol": "tcp"
+        },
         {
           "host-ip": "",
           "host-port": 0,
@@ -283,18 +295,6 @@
           "host-port": 0,
           "port": 443,
           "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 80,
-          "protocol": "tcp"
-        },
-        {
-          "host-ip": "",
-          "host-port": 0,
-          "port": 8080,
-          "protocol": "tcp"
         }
       ]
     },
@@ -309,13 +309,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-address": "172.20.20.8",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-address": "3fff:172:20:20::8",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr1",
@@ -343,13 +343,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-address": "172.20.20.7",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-address": "3fff:172:20:20::7",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr2",
@@ -377,13 +377,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.12",
+      "mgmt-ipv4-address": "172.20.20.15",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::c",
+      "mgmt-ipv6-address": "3fff:172:20:20::f",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr3",
@@ -411,13 +411,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-address": "172.20.20.9",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-address": "3fff:172:20:20::9",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr4",
@@ -445,13 +445,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-address": "172.20.20.14",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-address": "3fff:172:20:20::e",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr5",
@@ -479,13 +479,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.10",
+      "mgmt-ipv4-address": "172.20.20.13",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::a",
+      "mgmt-ipv6-address": "3fff:172:20:20::d",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr6",
@@ -513,13 +513,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.11",
+      "mgmt-ipv4-address": "172.20.20.4",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::b",
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr_c1_r1",
@@ -547,13 +547,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.14",
+      "mgmt-ipv4-address": "172.20.20.10",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::e",
+      "mgmt-ipv6-address": "3fff:172:20:20::a",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr_c1_r2",
@@ -581,13 +581,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.7",
+      "mgmt-ipv4-address": "172.20.20.6",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::7",
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr_c2_r1",
@@ -615,13 +615,13 @@
       "image": "quay.io/frrouting/frr:10.2.3",
       "mgmt-net": "",
       "mgmt-intf": "",
-      "mgmt-ipv4-address": "172.20.20.15",
+      "mgmt-ipv4-address": "172.20.20.11",
       "mgmt-ipv4-prefix-length": 24,
-      "mgmt-ipv6-address": "3fff:172:20:20::f",
+      "mgmt-ipv6-address": "3fff:172:20:20::b",
       "mgmt-ipv6-prefix-length": 64,
       "mac-address": "",
       "labels": {
-        "clab-mgmt-net-bridge": "br-6481a9c82e8a",
+        "clab-mgmt-net-bridge": "br-473142569a1a",
         "clab-node-group": "",
         "clab-node-kind": "linux",
         "clab-node-lab-dir": "/home/leo/labs/clab-srv6-frr/clab-frr-srv6/frr_c2_r2",
@@ -644,13 +644,13 @@
       "a": {
         "node": "frr_c1_r1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:da:f5:85",
+        "mac": "aa:c1:ab:b1:9d:d0",
         "peer": "z"
       },
       "z": {
         "node": "frr3",
         "interface": "eth3",
-        "mac": "aa:c1:ab:26:b0:bb",
+        "mac": "aa:c1:ab:4d:ca:aa",
         "peer": "a"
       }
     },
@@ -658,13 +658,13 @@
       "a": {
         "node": "frr_c2_r1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:8f:8e:d5",
+        "mac": "aa:c1:ab:ec:eb:77",
         "peer": "z"
       },
       "z": {
         "node": "frr3",
         "interface": "eth4",
-        "mac": "aa:c1:ab:91:17:43",
+        "mac": "aa:c1:ab:fb:e8:e9",
         "peer": "a"
       }
     },
@@ -672,13 +672,13 @@
       "a": {
         "node": "frr3",
         "interface": "eth2",
-        "mac": "aa:c1:ab:6b:0e:8c",
+        "mac": "aa:c1:ab:b3:68:50",
         "peer": "z"
       },
       "z": {
         "node": "frr1",
         "interface": "eth3",
-        "mac": "aa:c1:ab:bf:a6:e7",
+        "mac": "aa:c1:ab:43:b3:fb",
         "peer": "a"
       }
     },
@@ -686,13 +686,13 @@
       "a": {
         "node": "frr3",
         "interface": "eth1",
-        "mac": "aa:c1:ab:c3:fc:32",
+        "mac": "aa:c1:ab:24:60:c3",
         "peer": "z"
       },
       "z": {
         "node": "frr4",
         "interface": "eth1",
-        "mac": "aa:c1:ab:bf:d0:27",
+        "mac": "aa:c1:ab:4d:3f:95",
         "peer": "a"
       }
     },
@@ -700,13 +700,13 @@
       "a": {
         "node": "frr1",
         "interface": "eth1",
-        "mac": "aa:c1:ab:74:28:4e",
+        "mac": "aa:c1:ab:4d:d1:b1",
         "peer": "z"
       },
       "z": {
         "node": "frr2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:54:32:a1",
+        "mac": "aa:c1:ab:9b:5a:e0",
         "peer": "a"
       }
     },
@@ -714,13 +714,13 @@
       "a": {
         "node": "frr1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:55:98:43",
+        "mac": "aa:c1:ab:67:19:8a",
         "peer": "z"
       },
       "z": {
         "node": "frr5",
         "interface": "eth2",
-        "mac": "aa:c1:ab:c8:ee:ab",
+        "mac": "aa:c1:ab:66:9a:d3",
         "peer": "a"
       }
     },
@@ -728,13 +728,13 @@
       "a": {
         "node": "frr4",
         "interface": "eth2",
-        "mac": "aa:c1:ab:ea:82:22",
+        "mac": "aa:c1:ab:a0:5b:63",
         "peer": "z"
       },
       "z": {
         "node": "frr5",
         "interface": "eth3",
-        "mac": "aa:c1:ab:39:e0:a8",
+        "mac": "aa:c1:ab:fc:b3:0a",
         "peer": "a"
       }
     },
@@ -742,13 +742,13 @@
       "a": {
         "node": "frr2",
         "interface": "eth2",
-        "mac": "aa:c1:ab:bc:51:7d",
+        "mac": "aa:c1:ab:82:ba:a8",
         "peer": "z"
       },
       "z": {
         "node": "frr6",
         "interface": "eth2",
-        "mac": "aa:c1:ab:d2:84:9c",
+        "mac": "aa:c1:ab:6b:58:ca",
         "peer": "a"
       }
     },
@@ -756,13 +756,13 @@
       "a": {
         "node": "frr5",
         "interface": "eth1",
-        "mac": "aa:c1:ab:0d:d8:7c",
+        "mac": "aa:c1:ab:00:50:1c",
         "peer": "z"
       },
       "z": {
         "node": "frr6",
         "interface": "eth1",
-        "mac": "aa:c1:ab:6f:c4:bf",
+        "mac": "aa:c1:ab:7e:dd:cf",
         "peer": "a"
       }
     },
@@ -770,13 +770,13 @@
       "a": {
         "node": "frr6",
         "interface": "eth3",
-        "mac": "aa:c1:ab:52:54:55",
+        "mac": "aa:c1:ab:f1:ac:5e",
         "peer": "z"
       },
       "z": {
         "node": "frr_c1_r2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:7b:cd:4d",
+        "mac": "aa:c1:ab:d3:83:9d",
         "peer": "a"
       }
     },
@@ -784,13 +784,13 @@
       "a": {
         "node": "frr6",
         "interface": "eth4",
-        "mac": "aa:c1:ab:32:25:06",
+        "mac": "aa:c1:ab:a1:72:5a",
         "peer": "z"
       },
       "z": {
         "node": "frr_c2_r2",
         "interface": "eth1",
-        "mac": "aa:c1:ab:49:67:71",
+        "mac": "aa:c1:ab:0e:28:06",
         "peer": "a"
       }
     },
@@ -798,13 +798,13 @@
       "a": {
         "node": "frr_c1_r1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:cf:7d:21",
+        "mac": "aa:c1:ab:75:8e:5a",
         "peer": "z"
       },
       "z": {
         "node": "PC11",
         "interface": "eth1",
-        "mac": "aa:c1:ab:07:8b:5c",
+        "mac": "aa:c1:ab:ad:81:ad",
         "peer": "a"
       }
     },
@@ -812,13 +812,13 @@
       "a": {
         "node": "frr_c1_r2",
         "interface": "eth2",
-        "mac": "aa:c1:ab:bc:b8:93",
+        "mac": "aa:c1:ab:17:46:32",
         "peer": "z"
       },
       "z": {
         "node": "PC12",
         "interface": "eth1",
-        "mac": "aa:c1:ab:22:13:89",
+        "mac": "aa:c1:ab:01:4a:fa",
         "peer": "a"
       }
     },
@@ -826,13 +826,13 @@
       "a": {
         "node": "frr_c2_r1",
         "interface": "eth2",
-        "mac": "aa:c1:ab:12:64:dc",
+        "mac": "aa:c1:ab:0d:8c:e0",
         "peer": "z"
       },
       "z": {
         "node": "PC21",
         "interface": "eth1",
-        "mac": "aa:c1:ab:fd:09:e0",
+        "mac": "aa:c1:ab:9f:20:ec",
         "peer": "a"
       }
     },
@@ -840,13 +840,13 @@
       "a": {
         "node": "frr_c2_r2",
         "interface": "eth2",
-        "mac": "aa:c1:ab:9b:0f:1d",
+        "mac": "aa:c1:ab:06:01:b0",
         "peer": "z"
       },
       "z": {
         "node": "PC22",
         "interface": "eth1",
-        "mac": "aa:c1:ab:60:fc:79",
+        "mac": "aa:c1:ab:44:1d:a4",
         "peer": "a"
       }
     }
