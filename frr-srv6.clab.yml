@@ -10,6 +10,10 @@ topology:
       binds:
         - frr1/daemons:/etc/frr/daemons
         - frr1/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "545"
+        graph-posY: "575"
+        graph-groupLabelPos: bottom-center
 
     frr2:
       kind: linux
@@ -17,6 +21,10 @@ topology:
       binds:
         - frr2/daemons:/etc/frr/daemons
         - frr2/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "665"
+        graph-posY: "575"
+        graph-groupLabelPos: bottom-center
 
     frr3:
       kind: linux
@@ -24,27 +32,43 @@ topology:
       binds:
         - frr3/daemons:/etc/frr/daemons
         - frr3/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "485"
+        graph-posY: "635"
+        graph-groupLabelPos: bottom-center
 
     frr4:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       binds:
-        - frr3/daemons:/etc/frr/daemons
-        - frr3/frr.conf:/etc/frr/frr.conf
+        - frr4/daemons:/etc/frr/daemons
+        - frr4/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "545"
+        graph-posY: "705"
+        graph-groupLabelPos: bottom-center
 
     frr5:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       binds:
-        - frr3/daemons:/etc/frr/daemons
-        - frr3/frr.conf:/etc/frr/frr.conf
+        - frr5/daemons:/etc/frr/daemons
+        - frr5/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "665"
+        graph-posY: "705"
+        graph-groupLabelPos: bottom-center
 
     frr6:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       binds:
-        - frr3/daemons:/etc/frr/daemons
-        - frr3/frr.conf:/etc/frr/frr.conf
+        - frr6/daemons:/etc/frr/daemons
+        - frr6/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "745"
+        graph-posY: "635"
+        graph-groupLabelPos: bottom-center
 
     # CE ROUTERS (CLIENT 1)
     frr_c1_r1:
@@ -53,6 +77,10 @@ topology:
       binds:
         - frr_c1_r1/daemons:/etc/frr/daemons
         - frr_c1_r1/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "425"
+        graph-posY: "545"
+        graph-groupLabelPos: bottom-center
 
     frr_c1_r2:
       kind: linux
@@ -60,6 +88,10 @@ topology:
       binds:
         - frr_c1_r2/daemons:/etc/frr/daemons
         - frr_c1_r2/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "785"
+        graph-posY: "545"
+        graph-groupLabelPos: bottom-center
 
     # CE ROUTERS (CLIENT 2)
     frr_c2_r1:
@@ -68,6 +100,10 @@ topology:
       binds:
         - frr_c2_r1/daemons:/etc/frr/daemons
         - frr_c2_r1/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "435"
+        graph-posY: "725"
+        graph-groupLabelPos: bottom-center
 
     frr_c2_r2:
       kind: linux
@@ -75,6 +111,10 @@ topology:
       binds:
         - frr_c2_r2/daemons:/etc/frr/daemons
         - frr_c2_r2/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "785"
+        graph-posY: "715"
+        graph-groupLabelPos: bottom-center
 
     PC11:
       kind: linux
@@ -84,6 +124,10 @@ topology:
         - ip addr add 192.168.11.2/24 dev eth1
         - ip -6 addr add c1:1:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.11.1 dev eth1
+      labels:
+        graph-posX: "425"
+        graph-posY: "465"
+        graph-groupLabelPos: bottom-center
     PC12:
       kind: linux
       image: network-multitool-leo:v1.0
@@ -92,6 +136,10 @@ topology:
         - ip addr add 192.168.12.2/24 dev eth1
         - ip -6 addr add c1:2:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.12.1 dev eth1
+      labels:
+        graph-posX: "795"
+        graph-posY: "485"
+        graph-groupLabelPos: bottom-center
 
     PC21:
       kind: linux
@@ -101,6 +149,10 @@ topology:
         - ip addr add 192.168.21.2/24 dev eth1
         - ip -6 addr add c2:1:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.21.1 dev eth1
+      labels:
+        graph-posX: "435"
+        graph-posY: "805"
+        graph-groupLabelPos: bottom-center
 
     PC22:
       kind: linux
@@ -110,6 +162,10 @@ topology:
         - ip addr add 192.168.22.2/24 dev eth1
         - ip -6 addr add c2:2:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.22.1 dev eth1
+      labels:
+        graph-posX: "785"
+        graph-posY: "785"
+        graph-groupLabelPos: bottom-center
 
   links:
     - endpoints: [ "frr_c1_r1:eth1", "frr3:eth3" ]
