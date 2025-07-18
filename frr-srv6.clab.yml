@@ -39,7 +39,11 @@ topology:
         - ip link add lo1 type dummy
         - ip link set lo1 up
         - ip link add dev client1 type vrf table 1
+        - ip link set client1 up
+        - ip link set dev eth3 master client1
         - ip link add dev client2 type vrf table 2
+        - ip link set client2 up
+        - ip link set dev eth4 master client2
       binds:
         - frr3/daemons:/etc/frr/daemons
         - frr3/frr.conf:/etc/frr/frr.conf
@@ -83,7 +87,11 @@ topology:
         - ip link add lo1 type dummy
         - ip link set lo1 up
         - ip link add dev client1 type vrf table 1
+        - ip link set client1 up
+        - ip link set dev eth3 master client1
         - ip link add dev client2 type vrf table 2
+        - ip link set client2 up
+        - ip link set dev eth4 master client2
       binds:
         - frr6/daemons:/etc/frr/daemons
         - frr6/frr.conf:/etc/frr/frr.conf
