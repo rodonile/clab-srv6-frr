@@ -7,6 +7,9 @@ topology:
     frr1:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      exec:
+        - ip link add lo1 type dummy
+        - ip link set lo1 up
       binds:
         - frr1/daemons:/etc/frr/daemons
         - frr1/frr.conf:/etc/frr/frr.conf
@@ -18,6 +21,9 @@ topology:
     frr2:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      exec:
+        - ip link add lo1 type dummy
+        - ip link set lo1 up
       binds:
         - frr2/daemons:/etc/frr/daemons
         - frr2/frr.conf:/etc/frr/frr.conf
@@ -29,6 +35,9 @@ topology:
     frr3:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      exec:
+        - ip link add lo1 type dummy
+        - ip link set lo1 up
       binds:
         - frr3/daemons:/etc/frr/daemons
         - frr3/frr.conf:/etc/frr/frr.conf
@@ -40,6 +49,9 @@ topology:
     frr4:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      exec:
+        - ip link add lo1 type dummy
+        - ip link set lo1 up
       binds:
         - frr4/daemons:/etc/frr/daemons
         - frr4/frr.conf:/etc/frr/frr.conf
@@ -51,6 +63,9 @@ topology:
     frr5:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      exec:
+        - ip link add lo1 type dummy
+        - ip link set lo1 up
       binds:
         - frr5/daemons:/etc/frr/daemons
         - frr5/frr.conf:/etc/frr/frr.conf
@@ -62,6 +77,9 @@ topology:
     frr6:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      exec:
+        - ip link add lo1 type dummy
+        - ip link set lo1 up
       binds:
         - frr6/daemons:/etc/frr/daemons
         - frr6/frr.conf:/etc/frr/frr.conf
