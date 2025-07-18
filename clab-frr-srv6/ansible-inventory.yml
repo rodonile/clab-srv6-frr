@@ -8,30 +8,30 @@ all:
     linux:
       hosts:
         PC11:
-          ansible_host: 172.20.20.6
-        PC12:
-          ansible_host: 172.20.20.4
-        PC21:
-          ansible_host: 172.20.20.5
-        PC22:
-          ansible_host: 172.20.20.13
-        frr1:
           ansible_host: 172.20.20.7
-        frr2:
-          ansible_host: 172.20.20.15
-        frr3:
-          ansible_host: 172.20.20.8
-        frr4:
-          ansible_host: 172.20.20.2
-        frr5:
-          ansible_host: 172.20.20.10
-        frr6:
+        PC12:
           ansible_host: 172.20.20.14
-        frr_c1_r1:
-          ansible_host: 172.20.20.12
-        frr_c1_r2:
+        PC21:
+          ansible_host: 172.20.20.8
+        PC22:
           ansible_host: 172.20.20.9
-        frr_c2_r1:
-          ansible_host: 172.20.20.11
-        frr_c2_r2:
+        frr1:
+          ansible_host: 172.20.20.6
+        frr2:
+          ansible_host: 172.20.20.5
+        frr3:
+          ansible_host: 172.20.20.12
+        frr4:
           ansible_host: 172.20.20.3
+        frr5:
+          ansible_host: 172.20.20.2
+        frr6:
+          ansible_host: 172.20.20.10
+        frr_c1_r1:
+          ansible_host: 172.20.20.4
+        frr_c1_r2:
+          ansible_host: 172.20.20.15
+        frr_c2_r1:
+          ansible_host: 172.20.20.13
+        frr_c2_r2:
+          ansible_host: 172.20.20.11
