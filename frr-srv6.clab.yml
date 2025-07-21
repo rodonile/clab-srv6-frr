@@ -152,9 +152,10 @@ topology:
         graph-posY: "715"
         graph-groupLabelPos: bottom-center
 
+    # Linux Clients
     PC11:
       kind: linux
-      image: network-multitool-leo:v1.0
+      image: network-multitool-leo:v1.1
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.11.2/24 dev eth1
@@ -167,7 +168,7 @@ topology:
         graph-groupLabelPos: bottom-center
     PC12:
       kind: linux
-      image: network-multitool-leo:v1.0
+      image: network-multitool-leo:v1.1
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.12.2/24 dev eth1
@@ -181,7 +182,7 @@ topology:
 
     PC21:
       kind: linux
-      image: network-multitool-leo:v1.0
+      image: network-multitool-leo:v1.1
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.21.2/24 dev eth1
@@ -195,7 +196,7 @@ topology:
 
     PC22:
       kind: linux
-      image: network-multitool-leo:v1.0
+      image: network-multitool-leo:v1.1
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.22.2/24 dev eth1
