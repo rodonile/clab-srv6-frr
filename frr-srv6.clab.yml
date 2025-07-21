@@ -8,9 +8,11 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        # Basic configs
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
+        # VRFs (for L3VPN)
         - ip link add dev client2 type vrf table 2
         - ip link set client2 up
         - ip link set dev eth4 master client2
@@ -26,6 +28,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        # Basic configs
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
@@ -41,9 +44,11 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        # Basic configs
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
+        # VRFs (for L3VPN)
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth3 master client1
@@ -62,6 +67,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        # Basic configs
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
@@ -77,9 +83,11 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        # Basic configs
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
+        # VRFs (for L3VPN)
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth4 master client1
@@ -95,9 +103,11 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        # Basic configs
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
+        # VRFs (for L3VPN)
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth3 master client1
@@ -272,19 +282,19 @@ topology:
         graph-groupLabelPos: bottom-center
 
   links:
-    - endpoints: [ "frr_c1_r1:eth1", "frr3:eth3" ]
-    - endpoints: [ "frr_c2_r1:eth1", "frr3:eth4" ]
     - endpoints: [ "frr3:eth2", "frr1:eth3" ]
     - endpoints: [ "frr3:eth1", "frr4:eth1" ]
     - endpoints: [ "frr1:eth1", "frr2:eth1" ]
     - endpoints: [ "frr1:eth2", "frr5:eth2" ]
-    - endpoints: [ "frr1:eth4", "frr_c2_r3:eth1" ]
     - endpoints: [ "frr4:eth2", "frr5:eth3" ]
     - endpoints: [ "frr2:eth2", "frr6:eth2" ]
     - endpoints: [ "frr5:eth1", "frr6:eth1" ]
-    - endpoints: [ "frr5:eth4", "frr_c1_r3:eth1" ]
-    - endpoints: [ "frr6:eth3", "frr_c1_r2:eth1" ]
-    - endpoints: [ "frr6:eth4", "frr_c2_r2:eth1" ]
+    - endpoints: [ "frr_c1_r1:eth1", "frr3:eth3" ]
+    - endpoints: [ "frr_c1_r2:eth1", "frr6:eth3" ]
+    - endpoints: [ "frr_c1_r3:eth1", "frr5:eth4" ]
+    - endpoints: [ "frr_c2_r1:eth1", "frr3:eth4" ]
+    - endpoints: [ "frr_c2_r2:eth1", "frr6:eth4" ]
+    - endpoints: [ "frr_c2_r3:eth1", "frr1:eth4" ]
     - endpoints: [ "frr_c1_r1:eth2", "PC11:eth1" ]
     - endpoints: [ "frr_c1_r2:eth2", "PC12:eth1" ]
     - endpoints: [ "frr_c1_r3:eth2", "PC13:eth1" ]
