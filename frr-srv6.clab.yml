@@ -323,6 +323,22 @@ topology:
         graph-posY: "455"
         graph-groupLabelPos: bottom-center
 
+    # Collectors and other VMs
+    NETGAUZE:
+      kind: linux
+      image: netgauze-bmp-service:latest
+      mgmt-ipv4: 172.100.100.100
+      mgmt-ipv6: f0ca::100
+      binds:
+        - netgauze/logs:/logs
+      ports:
+        - 1790:1790
+        - 1791:1790
+      labels:
+        graph-posX: "325"
+        graph-posY: "635"
+        graph-groupLabelPos: bottom-center
+
   links:
     - endpoints: [ "frr3:eth2", "frr1:eth3" ]
     - endpoints: [ "frr3:eth1", "frr4:eth1" ]
