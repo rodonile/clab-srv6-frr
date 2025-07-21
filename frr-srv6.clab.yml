@@ -1,12 +1,20 @@
 name: frr-srv6
 prefix: ""
 
+# User-defined MGMG range
+mgmt:
+  network: fixedips
+  ipv4-subnet: 172.100.100.0/24 # 172.100.100.1 will be gateway
+  ipv6-subnet: f0ca::/64
+
 topology:
   nodes:
     # CORE ROUTERS (ISIS-DOMAIN)
     frr1:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.101
+      mgmt-ipv6: f0ca::101
       exec:
         # Basic configs
         - sysctl -w net.vrf.strict_mode=1
@@ -27,6 +35,8 @@ topology:
     frr2:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.102
+      mgmt-ipv6: f0ca::102
       exec:
         # Basic configs
         - sysctl -w net.vrf.strict_mode=1
@@ -43,6 +53,8 @@ topology:
     frr3:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.103
+      mgmt-ipv6: f0ca::103
       exec:
         # Basic configs
         - sysctl -w net.vrf.strict_mode=1
@@ -66,6 +78,8 @@ topology:
     frr4:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.104
+      mgmt-ipv6: f0ca::104
       exec:
         # Basic configs
         - sysctl -w net.vrf.strict_mode=1
@@ -82,6 +96,8 @@ topology:
     frr5:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.105
+      mgmt-ipv6: f0ca::105
       exec:
         # Basic configs
         - sysctl -w net.vrf.strict_mode=1
@@ -102,6 +118,8 @@ topology:
     frr6:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.106
+      mgmt-ipv6: f0ca::106
       exec:
         # Basic configs
         - sysctl -w net.vrf.strict_mode=1
@@ -126,6 +144,8 @@ topology:
     frr_c1_r1:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.111
+      mgmt-ipv6: f0ca::111
       binds:
         - frr_c1_r1/daemons:/etc/frr/daemons
         - frr_c1_r1/frr.conf:/etc/frr/frr.conf
@@ -137,6 +157,8 @@ topology:
     frr_c1_r2:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.112
+      mgmt-ipv6: f0ca::112
       binds:
         - frr_c1_r2/daemons:/etc/frr/daemons
         - frr_c1_r2/frr.conf:/etc/frr/frr.conf
@@ -148,6 +170,8 @@ topology:
     frr_c1_r3:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.113
+      mgmt-ipv6: f0ca::113
       binds:
         - frr_c1_r3/daemons:/etc/frr/daemons
         - frr_c1_r3/frr.conf:/etc/frr/frr.conf
@@ -160,6 +184,8 @@ topology:
     frr_c2_r1:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.121
+      mgmt-ipv6: f0ca::121
       binds:
         - frr_c2_r1/daemons:/etc/frr/daemons
         - frr_c2_r1/frr.conf:/etc/frr/frr.conf
@@ -171,6 +197,8 @@ topology:
     frr_c2_r2:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.122
+      mgmt-ipv6: f0ca::122
       binds:
         - frr_c2_r2/daemons:/etc/frr/daemons
         - frr_c2_r2/frr.conf:/etc/frr/frr.conf
@@ -182,6 +210,8 @@ topology:
     frr_c2_r3:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
+      mgmt-ipv4: 172.100.100.123
+      mgmt-ipv6: f0ca::123
       binds:
         - frr_c2_r3/daemons:/etc/frr/daemons
         - frr_c2_r3/frr.conf:/etc/frr/frr.conf
@@ -194,6 +224,8 @@ topology:
     PC11:
       kind: linux
       image: network-multitool-leo:v1.1
+      mgmt-ipv4: 172.100.100.211
+      mgmt-ipv6: f0ca::211
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.11.2/24 dev eth1
@@ -208,6 +240,8 @@ topology:
     PC12:
       kind: linux
       image: network-multitool-leo:v1.1
+      mgmt-ipv4: 172.100.100.212
+      mgmt-ipv6: f0ca::212
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.12.2/24 dev eth1
@@ -223,6 +257,8 @@ topology:
     PC13:
       kind: linux
       image: network-multitool-leo:v1.1
+      mgmt-ipv4: 172.100.100.213
+      mgmt-ipv6: f0ca::213
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.13.2/24 dev eth1
@@ -239,6 +275,8 @@ topology:
     PC21:
       kind: linux
       image: network-multitool-leo:v1.1
+      mgmt-ipv4: 172.100.100.221
+      mgmt-ipv6: f0ca::221
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.21.2/24 dev eth1
@@ -254,6 +292,8 @@ topology:
     PC22:
       kind: linux
       image: network-multitool-leo:v1.1
+      mgmt-ipv4: 172.100.100.222
+      mgmt-ipv6: f0ca::222
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.22.2/24 dev eth1
@@ -269,6 +309,8 @@ topology:
     PC23:
       kind: linux
       image: network-multitool-leo:v1.1
+      mgmt-ipv4: 172.100.100.223
+      mgmt-ipv6: f0ca::223
       exec:
         - ip link set eth1 up
         - ip addr add 192.168.23.2/24 dev eth1

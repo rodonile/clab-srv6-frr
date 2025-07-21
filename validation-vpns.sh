@@ -47,6 +47,11 @@ printf "\nClient 1:\n"
 for test in "${CLIENT1_TESTS[@]}"; do
   set -- $test
   SRC=$1; DST=$2; SRC_IP=$3; DST_IP=$4
+
+  # Fast ARP/NDP trigger
+  docker exec -i $SRC $PING_CMD -c 1 -W 1 $DST_IP > /dev/null 2>&1
+
+  # Real check
   if [[ $DST_IP == *:* ]]; then
     PING_CMD="ping6 -c 2 -W 1 $DST_IP"
   else
@@ -64,6 +69,11 @@ printf "\nClient 2:\n"
 for test in "${CLIENT2_TESTS[@]}"; do
   set -- $test
   SRC=$1; DST=$2; SRC_IP=$3; DST_IP=$4
+
+  # Fast ARP/NDP trigger
+  docker exec -i $SRC $PING_CMD -c 1 -W 1 $DST_IP > /dev/null 2>&1
+
+  # Real check
   if [[ $DST_IP == *:* ]]; then
     PING_CMD="ping6 -c 2 -W 1 $DST_IP"
   else
