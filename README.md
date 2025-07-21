@@ -1,4 +1,4 @@
-# Lab Topology
+# SRv6 Lab Topology with FRR
 <img src="containerlab-frr-srv6.svg" alt="Lab Topology" width="1600"/>
 
 ### Host System Requirements:

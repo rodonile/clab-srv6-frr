@@ -40,7 +40,7 @@ NC='\033[0m'
 # Handle CTRL-C
 trap "echo -e '\nInterrupted. Exiting.'; exit 130" SIGINT
 
-printf "\nPC-to-PC Connectivity Validation\n"
+printf "\nLayer3 VPN Connectivity Validation\n"
 printf "================================\n"
 
 printf "\nClient 1:\n"
