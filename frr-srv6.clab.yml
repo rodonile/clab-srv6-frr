@@ -51,6 +51,7 @@ topology:
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth3 master client1
+        - ip link set dev eth5 master client1
         - ip link add dev client2 type vrf table 2
         - ip link set client2 up
         - ip link set dev eth4 master client2
@@ -90,6 +91,7 @@ topology:
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth4 master client1
+        - ip link set dev eth5 master client1
       binds:
         - frr5/daemons:/etc/frr/daemons
         - frr5/frr.conf:/etc/frr/frr.conf
@@ -110,6 +112,7 @@ topology:
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth3 master client1
+        - ip link set dev eth5 master client1
         - ip link add dev client2 type vrf table 2
         - ip link set client2 up
         - ip link set dev eth4 master client2
@@ -200,6 +203,9 @@ topology:
         - ip route add 192.168.0.0/16 via 192.168.11.1 dev eth1
         - ip -6 route add c1:2:feed::/64 via c1:1:feed::1 dev eth1
         - ip -6 route add c1:3:feed::/64 via c1:1:feed::1 dev eth1
+        - ip link set eth2 up
+        - ip addr add 100.100.100.11/24 dev eth2
+        - ip -6 addr add abba::11/64 dev eth2
       labels:
         graph-posX: "425"
         graph-posY: "455"
@@ -214,6 +220,9 @@ topology:
         - ip route add 192.168.0.0/16 via 192.168.12.1 dev eth1
         - ip -6 route add c1:1:feed::/64 via c1:2:feed::1 dev eth1
         - ip -6 route add c1:3:feed::/64 via c1:2:feed::1 dev eth1
+        - ip link set eth2 up
+        - ip addr add 100.100.100.12/24 dev eth2
+        - ip -6 addr add abba::12/64 dev eth2
       labels:
         graph-posX: "785"
         graph-posY: "455"
@@ -229,6 +238,9 @@ topology:
         - ip route add 192.168.0.0/16 via 192.168.13.1 dev eth1
         - ip -6 route add c1:1:feed::/64 via c1:3:feed::1 dev eth1
         - ip -6 route add c1:2:feed::/64 via c1:3:feed::1 dev eth1
+        - ip link set eth2 up
+        - ip addr add 100.100.100.13/24 dev eth2
+        - ip -6 addr add abba::13/64 dev eth2
       labels:
         graph-posX: "615"
         graph-posY: "825"
@@ -300,3 +312,9 @@ topology:
     - endpoints: [ "frr_c2_r1:eth2", "PC21:eth1" ]
     - endpoints: [ "frr_c2_r2:eth2", "PC22:eth1" ]
     - endpoints: [ "frr_c2_r3:eth2", "PC23:eth1" ]
+    - endpoints: [ "frr_c1_r1:eth3", "frr3:eth5" ]
+    - endpoints: [ "frr_c1_r2:eth3", "frr6:eth5" ]
+    - endpoints: [ "frr_c1_r3:eth3", "frr5:eth5" ]
+    - endpoints: [ "frr_c1_r1:eth4", "PC11:eth2" ]
+    - endpoints: [ "frr_c1_r2:eth4", "PC12:eth2" ]
+    - endpoints: [ "frr_c1_r3:eth4", "PC13:eth2" ]
