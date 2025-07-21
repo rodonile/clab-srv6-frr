@@ -28,6 +28,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        # Basic configs
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
@@ -51,10 +52,16 @@ topology:
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth3 master client1
-        - ip link set dev eth5 master client1
+        # - ip link set dev eth5 master client1
         - ip link add dev client2 type vrf table 2
         - ip link set client2 up
         - ip link set dev eth4 master client2
+        # Bridges (for L2VPN)
+        - ip link add name br100 type bridge
+        - ip link set dev br100 type bridge vlan_filtering 1
+        - ip link set dev br100 up
+        - ip link set dev eth5 master br100
+        - ip link set dev eth5 up
       binds:
         - frr3/daemons:/etc/frr/daemons
         - frr3/frr.conf:/etc/frr/frr.conf
@@ -91,7 +98,13 @@ topology:
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth4 master client1
-        - ip link set dev eth5 master client1
+        # - ip link set dev eth5 master client1
+        # Bridges (for L2VPN)
+        - ip link add name br100 type bridge
+        - ip link set dev br100 type bridge vlan_filtering 1
+        - ip link set dev br100 up
+        - ip link set dev eth5 master br100
+        - ip link set dev eth5 up
       binds:
         - frr5/daemons:/etc/frr/daemons
         - frr5/frr.conf:/etc/frr/frr.conf
@@ -112,10 +125,16 @@ topology:
         - ip link add dev client1 type vrf table 1
         - ip link set client1 up
         - ip link set dev eth3 master client1
-        - ip link set dev eth5 master client1
+        # - ip link set dev eth5 master client1
         - ip link add dev client2 type vrf table 2
         - ip link set client2 up
         - ip link set dev eth4 master client2
+        # Bridges (for L2VPN)
+        - ip link add name br100 type bridge
+        - ip link set dev br100 type bridge vlan_filtering 1
+        - ip link set dev br100 up
+        - ip link set dev eth5 master br100
+        - ip link set dev eth5 up
       binds:
         - frr6/daemons:/etc/frr/daemons
         - frr6/frr.conf:/etc/frr/frr.conf
