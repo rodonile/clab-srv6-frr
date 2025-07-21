@@ -3,7 +3,18 @@
 
 ### Host System Requirements:
 
-- kernel version > ?
+- tested on Ubuntu Noble, kernel 6.8.0-64:
+
+```bash
+leo@containerlab:~$ uname -a
+Linux containerlab 6.8.0-64-generic #67-Ubuntu SMP PREEMPT_DYNAMIC Sun Jun 15 20:23:31 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+leo@containerlab:~$ cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=24.04
+DISTRIB_CODENAME=noble
+DISTRIB_DESCRIPTION="Ubuntu 24.04.2 LTS"
+```
+
 - add following configs for sysctl (needed for SRv6 working properly)
 
 ``` bash
@@ -25,17 +36,21 @@ leo@containerlab:~/labs/clab-srv6-frr$ ./validation-vpns.sh
 PC-to-PC Connectivity Validation
 ================================
 
-Client 1 (PC11 <-> PC12):
-✅ PC11 (192.168.11.2) → PC12 (192.168.12.2)
-✅ PC11 (c1:1:feed::2) → PC12 (c1:2:feed::2)
-✅ PC12 (192.168.12.2) → PC11 (192.168.11.2)
-✅ PC12 (c1:2:feed::2) → PC11 (c1:1:feed::2)
+Client 1:
+✅ PC11 (192.168.11.2) <-> PC12 (192.168.12.2)
+✅ PC11 (c1:1:feed::2) <-> PC12 (c1:2:feed::2)
+✅ PC11 (192.168.11.2) <-> PC13 (192.168.13.2)
+✅ PC11 (c1:1:feed::2) <-> PC13 (c1:3:feed::2)
+✅ PC12 (192.168.12.2) <-> PC13 (192.168.13.2)
+✅ PC12 (c1:2:feed::2) <-> PC13 (c1:3:feed::2)
 
-Client 2 (PC21 <-> PC22):
-✅ PC21 (192.168.21.2) → PC22 (192.168.22.2)
-✅ PC21 (c2:1:feed::2) → PC22 (c2:2:feed::2)
-✅ PC22 (192.168.22.2) → PC21 (192.168.21.2)
-✅ PC22 (c2:2:feed::2) → PC21 (c2:1:feed::2)
+Client 2:
+✅ PC21 (192.168.21.2) <-> PC22 (192.168.22.2)
+✅ PC21 (c2:1:feed::2) <-> PC22 (c2:2:feed::2)
+✅ PC21 (192.168.21.2) <-> PC23 (192.168.23.2)
+✅ PC21 (c2:1:feed::2) <-> PC23 (c2:3:feed::2)
+✅ PC22 (192.168.22.2) <-> PC23 (192.168.23.2)
+✅ PC22 (c2:2:feed::2) <-> PC23 (c2:3:feed::2)
 ================================
 ```
 

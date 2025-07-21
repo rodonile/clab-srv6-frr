@@ -11,6 +11,9 @@ topology:
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
+        - ip link add dev client2 type vrf table 2
+        - ip link set client2 up
+        - ip link set dev eth4 master client2
       binds:
         - frr1/daemons:/etc/frr/daemons
         - frr1/frr.conf:/etc/frr/frr.conf
@@ -77,6 +80,9 @@ topology:
         - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
+        - ip link add dev client1 type vrf table 1
+        - ip link set client1 up
+        - ip link set dev eth4 master client1
       binds:
         - frr5/daemons:/etc/frr/daemons
         - frr5/frr.conf:/etc/frr/frr.conf
@@ -129,6 +135,17 @@ topology:
         graph-posY: "545"
         graph-groupLabelPos: bottom-center
 
+    frr_c1_r3:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.3
+      binds:
+        - frr_c1_r3/daemons:/etc/frr/daemons
+        - frr_c1_r3/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "615"
+        graph-posY: "755"
+        graph-groupLabelPos: bottom-center
+
     # CE ROUTERS (CLIENT 2)
     frr_c2_r1:
       kind: linux
@@ -152,7 +169,18 @@ topology:
         graph-posY: "715"
         graph-groupLabelPos: bottom-center
 
-    # Linux Clients
+    frr_c2_r3:
+      kind: linux
+      image: quay.io/frrouting/frr:10.2.3
+      binds:
+        - frr_c2_r3/daemons:/etc/frr/daemons
+        - frr_c2_r3/frr.conf:/etc/frr/frr.conf
+      labels:
+        graph-posX: "605"
+        graph-posY: "525"
+        graph-groupLabelPos: bottom-center
+
+    # LINUX PCs (CLIENT1)
     PC11:
       kind: linux
       image: network-multitool-leo:v1.1
@@ -162,9 +190,10 @@ topology:
         - ip -6 addr add c1:1:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.11.1 dev eth1
         - ip -6 route add c1:2:feed::/64 via c1:1:feed::1 dev eth1
+        - ip -6 route add c1:3:feed::/64 via c1:1:feed::1 dev eth1
       labels:
         graph-posX: "425"
-        graph-posY: "465"
+        graph-posY: "455"
         graph-groupLabelPos: bottom-center
     PC12:
       kind: linux
@@ -175,11 +204,28 @@ topology:
         - ip -6 addr add c1:2:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.12.1 dev eth1
         - ip -6 route add c1:1:feed::/64 via c1:2:feed::1 dev eth1
+        - ip -6 route add c1:3:feed::/64 via c1:2:feed::1 dev eth1
       labels:
-        graph-posX: "795"
-        graph-posY: "485"
+        graph-posX: "785"
+        graph-posY: "455"
         graph-groupLabelPos: bottom-center
 
+    PC13:
+      kind: linux
+      image: network-multitool-leo:v1.1
+      exec:
+        - ip link set eth1 up
+        - ip addr add 192.168.13.2/24 dev eth1
+        - ip -6 addr add c1:3:feed::2/64 dev eth1
+        - ip route add 192.168.0.0/16 via 192.168.13.1 dev eth1
+        - ip -6 route add c1:1:feed::/64 via c1:3:feed::1 dev eth1
+        - ip -6 route add c1:2:feed::/64 via c1:3:feed::1 dev eth1
+      labels:
+        graph-posX: "615"
+        graph-posY: "825"
+        graph-groupLabelPos: bottom-center
+
+    # LINUX PCs (CLIENT2)
     PC21:
       kind: linux
       image: network-multitool-leo:v1.1
@@ -189,9 +235,10 @@ topology:
         - ip -6 addr add c2:1:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.21.1 dev eth1
         - ip -6 route add c2:2:feed::/64 via c2:1:feed::1 dev eth1
+        - ip -6 route add c2:3:feed::/64 via c2:1:feed::1 dev eth1
       labels:
         graph-posX: "435"
-        graph-posY: "805"
+        graph-posY: "825"
         graph-groupLabelPos: bottom-center
 
     PC22:
@@ -203,9 +250,25 @@ topology:
         - ip -6 addr add c2:2:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.22.1 dev eth1
         - ip -6 route add c2:1:feed::/64 via c2:2:feed::1 dev eth1
+        - ip -6 route add c2:3:feed::/64 via c2:2:feed::1 dev eth1
       labels:
         graph-posX: "785"
-        graph-posY: "785"
+        graph-posY: "825"
+        graph-groupLabelPos: bottom-center
+
+    PC23:
+      kind: linux
+      image: network-multitool-leo:v1.1
+      exec:
+        - ip link set eth1 up
+        - ip addr add 192.168.23.2/24 dev eth1
+        - ip -6 addr add c2:3:feed::2/64 dev eth1
+        - ip route add 192.168.0.0/16 via 192.168.23.1 dev eth1
+        - ip -6 route add c2:1:feed::/64 via c2:3:feed::1 dev eth1
+        - ip -6 route add c2:2:feed::/64 via c2:3:feed::1 dev eth1
+      labels:
+        graph-posX: "605"
+        graph-posY: "455"
         graph-groupLabelPos: bottom-center
 
   links:
@@ -215,12 +278,16 @@ topology:
     - endpoints: [ "frr3:eth1", "frr4:eth1" ]
     - endpoints: [ "frr1:eth1", "frr2:eth1" ]
     - endpoints: [ "frr1:eth2", "frr5:eth2" ]
+    - endpoints: [ "frr1:eth4", "frr_c2_r3:eth1" ]
     - endpoints: [ "frr4:eth2", "frr5:eth3" ]
     - endpoints: [ "frr2:eth2", "frr6:eth2" ]
     - endpoints: [ "frr5:eth1", "frr6:eth1" ]
+    - endpoints: [ "frr5:eth4", "frr_c1_r3:eth1" ]
     - endpoints: [ "frr6:eth3", "frr_c1_r2:eth1" ]
     - endpoints: [ "frr6:eth4", "frr_c2_r2:eth1" ]
     - endpoints: [ "frr_c1_r1:eth2", "PC11:eth1" ]
     - endpoints: [ "frr_c1_r2:eth2", "PC12:eth1" ]
+    - endpoints: [ "frr_c1_r3:eth2", "PC13:eth1" ]
     - endpoints: [ "frr_c2_r1:eth2", "PC21:eth1" ]
     - endpoints: [ "frr_c2_r2:eth2", "PC22:eth1" ]
+    - endpoints: [ "frr_c2_r3:eth2", "PC23:eth1" ]
