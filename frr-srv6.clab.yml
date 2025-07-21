@@ -8,6 +8,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
       binds:
@@ -22,6 +23,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
       binds:
@@ -36,6 +38,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
         - ip link add dev client1 type vrf table 1
@@ -56,6 +59,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
       binds:
@@ -70,6 +74,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
       binds:
@@ -84,6 +89,7 @@ topology:
       kind: linux
       image: quay.io/frrouting/frr:10.2.3
       exec:
+        - sysctl -w net.vrf.strict_mode=1
         - ip link add lo1 type dummy
         - ip link set lo1 up
         - ip link add dev client1 type vrf table 1
@@ -154,6 +160,7 @@ topology:
         - ip addr add 192.168.11.2/24 dev eth1
         - ip -6 addr add c1:1:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.11.1 dev eth1
+        - ip -6 route add c1:2:feed::/64 via c1:1:feed::1 dev eth1
       labels:
         graph-posX: "425"
         graph-posY: "465"
@@ -166,6 +173,7 @@ topology:
         - ip addr add 192.168.12.2/24 dev eth1
         - ip -6 addr add c1:2:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.12.1 dev eth1
+        - ip -6 route add c1:1:feed::/64 via c1:2:feed::1 dev eth1
       labels:
         graph-posX: "795"
         graph-posY: "485"
@@ -179,6 +187,7 @@ topology:
         - ip addr add 192.168.21.2/24 dev eth1
         - ip -6 addr add c2:1:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.21.1 dev eth1
+        - ip -6 route add c2:2:feed::/64 via c2:1:feed::1 dev eth1
       labels:
         graph-posX: "435"
         graph-posY: "805"
@@ -192,6 +201,7 @@ topology:
         - ip addr add 192.168.22.2/24 dev eth1
         - ip -6 addr add c2:2:feed::2/64 dev eth1
         - ip route add 192.168.0.0/16 via 192.168.22.1 dev eth1
+        - ip -6 route add c2:1:feed::/64 via c2:2:feed::1 dev eth1
       labels:
         graph-posX: "785"
         graph-posY: "785"
