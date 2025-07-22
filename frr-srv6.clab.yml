@@ -12,7 +12,7 @@ topology:
     # CORE ROUTERS (ISIS-DOMAIN)
     frr1:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.101
       mgmt-ipv6: f0ca::101
       exec:
@@ -34,7 +34,7 @@ topology:
 
     frr2:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.102
       mgmt-ipv6: f0ca::102
       exec:
@@ -52,7 +52,7 @@ topology:
 
     frr3:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.103
       mgmt-ipv6: f0ca::103
       exec:
@@ -77,7 +77,7 @@ topology:
 
     frr4:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.104
       mgmt-ipv6: f0ca::104
       exec:
@@ -95,7 +95,7 @@ topology:
 
     frr5:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.105
       mgmt-ipv6: f0ca::105
       exec:
@@ -117,7 +117,7 @@ topology:
 
     frr6:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.106
       mgmt-ipv6: f0ca::106
       exec:
@@ -143,7 +143,7 @@ topology:
     # CE ROUTERS (CLIENT 1)
     frr_c1_r1:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.111
       mgmt-ipv6: f0ca::111
       binds:
@@ -156,7 +156,7 @@ topology:
 
     frr_c1_r2:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.112
       mgmt-ipv6: f0ca::112
       binds:
@@ -169,7 +169,7 @@ topology:
 
     frr_c1_r3:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.113
       mgmt-ipv6: f0ca::113
       binds:
@@ -183,7 +183,7 @@ topology:
     # CE ROUTERS (CLIENT 2)
     frr_c2_r1:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.121
       mgmt-ipv6: f0ca::121
       binds:
@@ -196,7 +196,7 @@ topology:
 
     frr_c2_r2:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.122
       mgmt-ipv6: f0ca::122
       binds:
@@ -209,7 +209,7 @@ topology:
 
     frr_c2_r3:
       kind: linux
-      image: quay.io/frrouting/frr:10.2.3
+      image: quay.io/frrouting/frr:master
       mgmt-ipv4: 172.100.100.123
       mgmt-ipv6: f0ca::123
       binds:
