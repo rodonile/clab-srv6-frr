@@ -1,7 +1,7 @@
 name: frr-srv6
 prefix: ""
 
-# User-defined MGMG range
+# User-defined MGMT range
 mgmt:
   network: fixedips
   ipv4-subnet: 172.100.100.0/24 # 172.100.100.1 will be gateway
